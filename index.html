@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Conversor De Moedas</title>
+</head>
+
+<body>
+    <nav>
+        <h1>Conversor de Moedas</h1>
+
+        <button class="btn btn-add">Nova Operação</button>
+        <button class="btn btn-cot">Alterar Cotação</button>
+    </nav>
+
+    <div class="container">
+        <table id="example" class="display table-operation" style="width:100%" id="datatable">
+            <tr>
+                <th>Cliente</th>
+                <th>Data</th>
+                <th>Valor Inicial</th>
+                <th>Moeda De Origem</th>
+                <th>Moeda De Destino</th>
+                <th>Valor Convertido</th>
+                <th>Taxa</th>
+                <th>Valor Final</th>
+                <th></th>
+            </tr>
+        </table>
+
+        <div class="add-modal modal-wrapper">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>Nova Operação</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form">
+                        <label for="name">Nome</label>
+                        <input type="text" name="name" id="nameInput" placeholder=" Nome" required>
+                        <label for="date">Data</label required>
+                        <input type="date" name="" id="date">
+                        <label for="from">Moeda Origem</label>
+                        <select name=from id="from" required>
+                            <option value="" selected>Selecione</option>
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="CAD">Dólar canadense (CAD)</option>
+                            <option value="USD">Dólar estadunidense (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="JPY">Iene japonês (JPY)</option>
+                            <option value="GBP">Libra esterlina (GBP)</option>
+                            <option value="BRL">Real brasileiro (BRL)</option>
+                            <option value="CNY">Yuan chinês (CNY)</option>
+                        </select>
+                        <label for="to">Moeda de destino</label>
+                        <select name=to id="to" required>
+                            <option value="" selected>Selecione</option>
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="CAD">Dólar canadense (CAD)</option>
+                            <option value="USD">Dólar estadunidense (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="JPY">Iene japonês (JPY)</option>
+                            <option value="GBP">Libra esterlina (GBP)</option>
+                            <option value="BRL">Real brasileiro (BRL)</option>
+                            <option value="CNY">Yuan chinês (CNY)</option>
+                        </select>
+                        <label for="valorDeOrigem">Valor na Moeda de Origem</label>
+                        <input id="valorDeOrigem" name="valorDeOrigem" type="number" required>
+                        <label for="valorDeDestino">Valor na Moeda de Destino</label>
+                        <span name="valorDeDestino" id="valorDeDestino"></span>
+                        <label for="taxa">Taxa</label>
+                        <span name="taxa" id="taxa"></span>
+                        <label for="valorFinal">Valor Final</label>
+                        <span id="valorFinal" name="valorFinal"></span>
+                        <button class="btn-modal btn" id="cadastrar">Cadastrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cot-modal modal-wrapper">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>Alterar Cotação</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form">
+                        <label for="cotacao">Selecione a Moeda</label>
+                        <select name='cotacao' id="cotacao" required>
+                            <option value="" selected>Selecione</option>
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="CAD">Dólar canadense (CAD)</option>
+                            <option value="USD">Dólar estadunidense (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="JPY">Iene japonês (JPY)</option>
+                            <option value="GBP">Libra esterlina (GBP)</option>
+                            <option value="BRL">Real brasileiro (BRL)</option>
+                            <option value="CNY">Yuan chinês (CNY)</option>
+                        </select>
+                        <label for="showcot">Cotação</label>
+                        <span id="showcot"></span>
+                        <label for="valor">Novo Valor</label>
+                        <input type="number" name="valor" id="novoValor" placeholder="Novo Valor">
+                        <button class="btn-modal btn" id="alterar">Alterar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container">
+        <div class="totalConvertido">
+            <h3>Total dos Valores Convertidos</h3>
+            <label for="moedaConvertida">Selecione a Moeda</label>
+            <select name='moedaConvertida' id="moedaConvertida" required>
+                <option value="" selected>Selecione</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="CAD">Dólar canadense (CAD)</option>
+                <option value="USD">Dólar estadunidense (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="JPY">Iene japonês (JPY)</option>
+                <option value="GBP">Libra esterlina (GBP)</option>
+                <option value="BRL">Real brasileiro (BRL)</option>
+                <option value="CNY">Yuan chinês (CNY)</option>
+            </select>
+            <button class="btn-modal btn" id="convertido">Calcular</button>
+            
+            
+            <label for="showTotConv">Valor Total Convertido</label>
+            <span id="showTotConv"></span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="totalTaxas">
+            <h3>Total de Taxas Recebidas</h3>
+            <label for="moedaTaxas">Selecione a Moeda</label>
+            <select name='moedaTaxas' id="moedaTaxas" required>
+                <option value="" selected>Selecione</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="CAD">Dólar canadense (CAD)</option>
+                <option value="USD">Dólar estadunidense (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="JPY">Iene japonês (JPY)</option>
+                <option value="GBP">Libra esterlina (GBP)</option>
+                <option value="BRL">Real brasileiro (BRL)</option>
+                <option value="CNY">Yuan chinês (CNY)</option>
+            </select>
+            <button class="btn-modal btn" id="taxas">Calcular</button>
+            
+            
+            <label for="showTotTax">Valor Total das Taxas Recebidas</label>
+            <span id="showTotTax"></span>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+   
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

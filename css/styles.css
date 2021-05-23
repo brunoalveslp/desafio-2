@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+:root {
+  --primary-color: #955df4;
+  --on-bg-color: #fff;
+  --bg-th: #fafafa;
+  --btn-modal: #65bbdd;
+  --delete:rgb(36, 144, 206);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  max-width: 100%;
+  height: 4rem;
+  display: flex;
+  background-color: var(--primary-color);
+  color: var(--on-bg-color);
+  padding: 1rem;
+}
+
+nav h1 {
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+}
+
+.container {
+  max-width: 80rem;
+  max-height: 50rem;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+}
+
+.totalConvertido, .totalTaxas {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.filtro {
+  display: flex;
+  width: 80%;
+}
+
+.filtro input, .filtro label {
+  margin-left: 20px;
+}
+
+.filtro h3{
+  margin: 10px;
+}
+
+.filtro button {
+  margin-left: 20px;
+  width: 10rem;
+}
+
+.table-operation {
+  position: relative;
+  width: 90%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  overflow: auto;
+}
+
+.table-operation th,
+.table-operation td {
+  text-align: left;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+.table-operation th {
+  background: #fafafa;
+  padding: 1rem auto;
+}
+
+
+
+select {
+  height: 2rem;
+  font-size: 1.2rem;
+}
+
+.btn {
+  background: transparent;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+.btn-add , .btn-cot {
+  margin-right: 10px;
+  background-color: transparent;
+  width: 7rem;
+  height: 2rem;
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-add:hover ,.btn-cot:hover {
+  background: var(--on-bg-color);
+  color: #fff;
+}
+
+.btn-delete {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  margin-left: 20px;
+  color: var(--delete);
+  border: 1px solid var(--delete);
+}
+
+.btn-delete:hover {
+  background: var(--delete);
+  color: #fff;
+}
+
+.table-wrapper {
+  text-align: center;
+}
+
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #24232354;
+  display: none;
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  text-align: center;
+  width: 50rem;
+  height: auto;
+  margin: 1rem auto;
+  -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.cot-modal .modal {
+  height: 20rem;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-show {
+  display: block;
+}
+
+.modal-header {
+  margin-bottom: .4rem;
+  background-color: var(--bg-th);
+  padding: 2rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.btn-modal {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--on-bg-color);
+  width: 9rem;
+  margin: 0 auto;
+}
+
+.btn-modal:hover {
+  background-color: var(--on-bg-color);
+
+  border: 2px solid var(--btn-modal);
+  color: var(--btn-modal);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+span {
+    margin: .2rem;
+}
+
+label {
+    margin: .13rem;
+}
+
+input {
+  width: 100%;
+  height: 2.2rem;
+  margin-bottom: 1rem;
+  text-indent: 0.5rem;
+  outline: none;
+}
